@@ -3,7 +3,8 @@
   <head>
     <meta charset="utf-8" />
     <title>Frizerie — Portofoliu & Ghid</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
+    <!-- Let the page size naturally; don't force max scale that can shrink things -->
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <!-- Reveal core -->
     <link rel="stylesheet" href="https://unpkg.com/reveal.js@5/dist/reveal.css"/>
@@ -13,56 +14,68 @@
       /* ================== THEME & TOKENS ================== */
       :root{
         --brand:#0ea5e9;
-        --brand-600:#0891b2;
         --ink:#0f172a;
         --muted:#475569;
         --bg:#f8fafc;
-        --card:#ffffff;
         --ring:rgba(14,165,233,.25);
       }
       html,body{background:var(--bg)}
-      .reveal{color:var(--ink);font-size:24px}
+
+      /* Use fluid type so phones aren't tiny */
+      .reveal{
+        color:var(--ink);
+        /* min 19px, grows with viewport, caps at 28px on wide screens */
+        font-size:clamp(19px, 4.3vw, 28px);
+        line-height:1.35;
+      }
 
       /* ================== TYPOGRAPHY ================== */
       .reveal h1{
-        font-size:3em;font-weight:900;letter-spacing:1.5px;text-transform:uppercase;
+        /* fluid heading too */
+        font-size:clamp(1.8em, 7vw, 3em);
+        font-weight:900;letter-spacing:1.2px;text-transform:uppercase;
         background:linear-gradient(90deg,#0ea5e9,#38bdf8);
         -webkit-background-clip:text;-webkit-text-fill-color:transparent;
         text-align:center;text-shadow:2px 2px 6px rgba(0,0,0,.08);
-        margin-bottom:.35em;
+        margin:.1em 0 .35em;
       }
-      .reveal h2{font-size:2em}
+      .reveal h2{font-size:clamp(1.2em, 5.2vw, 2em)}
       .reveal h3.muted{
-        font-size:1.2rem;font-weight:600;color:#475569;letter-spacing:.5px;text-transform:uppercase;
-        border-top:2px solid #e2e8f0;border-bottom:2px solid #e2e8f0;padding:.5rem 0;margin:1rem auto;display:inline-block;
+        font-size:clamp(1rem, 3.6vw, 1.2rem);
+        font-weight:700;color:#475569;letter-spacing:.4px;text-transform:uppercase;
+        border-top:2px solid #e2e8f0;border-bottom:2px solid #e2e8f0;padding:.45rem 0;margin:.8rem auto;display:inline-block;
       }
       .muted{color:var(--muted)}
       .reveal p.muted{
-        font-size:1rem;color:#334155;background:#f1f5f9;padding:.6rem 1rem;border-radius:12px;display:inline-block;margin-top:1rem;
-        box-shadow:0 2px 6px rgba(0,0,0,.08);font-weight:500;letter-spacing:.3px;
+        font-size:clamp(.95rem, 3.7vw, 1rem);
+        color:#334155;background:#f1f5f9;padding:.6rem 1rem;border-radius:12px;display:inline-block;margin-top:.6rem;
+        box-shadow:0 2px 6px rgba(0,0,0,.08);font-weight:500;letter-spacing:.2px;
       }
       .brand-pill{
-        display:inline-block;padding:.55rem 1.2rem;border-radius:9999px;
-        background:linear-gradient(90deg,#0ea5e9,#38bdf8);color:#fff;font-weight:800;font-size:1.05rem;letter-spacing:.7px;
+        display:inline-block;padding:.55rem 1.05rem;border-radius:9999px;
+        background:linear-gradient(90deg,#0ea5e9,#38bdf8);color:#fff;font-weight:900;font-size:clamp(.95rem,3.6vw,1.05rem);
         box-shadow:0 4px 12px rgba(14,165,233,.25);text-transform:uppercase;
       }
 
       /* ================== LAYOUT ================== */
       .reveal .slides section{width:100%!important;max-width:100%!important}
       .slide-card{
-        max-width:1200px;margin:0 auto;padding:0 1rem;
-        display:flex;flex-direction:column;justify-content:center;align-items:center;height:100%;text-align:center;
+        max-width:min(1100px, 92vw);
+        margin:0 auto;padding:1.2rem clamp(.8rem, 3.2vw, 1.5rem);
+        display:flex;flex-direction:column;justify-content:center;align-items:center;min-height:100%;
+        text-align:center;
       }
-      .grid{display:grid;gap:1.2rem;grid-template-columns:1.35fr 1fr;align-items:center}
+      .grid{display:grid;gap:clamp(.7rem,2.6vw,1.2rem);grid-template-columns:1.25fr 1fr;align-items:center}
       .grid-3{display:grid;gap:1rem;grid-template-columns:repeat(3,1fr)}
       .callout{
-        margin-top:.8rem;background:#ecfeff;border:1px solid #bae6fd;color:#0c4a6e;border-radius:12px;
+        margin-top:.6rem;background:#ecfeff;border:1px solid #bae6fd;color:#0c4a6e;border-radius:12px;
         padding:.75rem 1rem;box-shadow:0 2px 8px rgba(2,132,199,.08);
       }
 
-      /* ================== LISTS (smaller in cards) ================== */
-      .slide-card ul li,.slide-card ol li{font-size:.92em;line-height:1.35;margin:.25rem 0}
-      .subnote{font-size:.8rem;color:#64748b;margin:.25rem 0 0 .5rem;line-height:1.25}
+      /* ================== LISTS ================== */
+      .slide-card ul, .slide-card ol{margin:.25rem 0;padding-left:1.1rem;text-align:left}
+      .slide-card ul li,.slide-card ol li{font-size:1em;line-height:1.45;margin:.25rem 0}
+      .subnote{font-size:.9rem;color:#64748b;margin:.25rem 0 0 .2rem;line-height:1.3}
 
       /* Ordered lists with custom blue numbers (no native marker) */
       ol.steps{list-style:none!important;margin:0;padding:0;counter-reset:step}
@@ -70,34 +83,34 @@
       ol.steps>li::marker{content:""!important}
       ol.steps>li::before{
         content:counter(step) ".";
-        position:absolute;left:0;top:0;color:var(--brand);font-weight:800;
+        position:absolute;left:0;top:0;color:var(--brand);font-weight:900;
       }
 
       /* ================== TABLE ================== */
-      table{border-collapse:collapse;width:100%;font-size:.9em}
-      th,td{border:1px solid #e5e7eb;padding:.45rem .6rem;text-align:left}
+      table{border-collapse:collapse;width:100%;font-size:.95em}
+      th,td{border:1px solid #e5e7eb;padding:.5rem .6rem;text-align:left}
       th{background:#f1f5f9}
 
       /* ================== MEDIA ================== */
-      img.shadow{border:6px solid #fff;border-radius:12px;box-shadow:0 6px 20px rgba(0,0,0,.12)}
-      .company-logo{max-width:320px!important;height:auto;margin-top:1rem}
+      img{max-width:100%;height:auto}
+      .company-logo{max-width:min(60vw, 320px)!important;height:auto;margin-top:.6rem}
 
       /* KPI chips */
-      .kpi{display:flex;gap:.6rem;flex-wrap:wrap;justify-content:center;margin-top:1rem}
+      .kpi{display:flex;gap:.6rem;flex-wrap:wrap;justify-content:center;margin-top:.6rem}
       .kpi .card{
-        padding:.4rem .65rem;border:1px solid rgba(2,6,23,.08);border-radius:10px;background:#fff;min-width:110px;text-align:center
+        padding:.45rem .65rem;border:1px solid rgba(2,6,23,.08);border-radius:10px;background:#fff;min-width:110px;text-align:center
       }
-      .kpi .card h3{font-size:1.1rem;margin:.15rem 0}
-      .kpi .card p{font-size:.72rem;margin:0;color:var(--muted)}
+      .kpi .card h3{font-size:1.05rem;margin:.1rem 0}
+      .kpi .card p{font-size:.78rem;margin:0;color:var(--muted)}
 
       /* Buttons */
-      .btn{display:inline-block;padding:.6rem 1rem;border-radius:10px;background:var(--brand);color:#fff;text-decoration:none;font-weight:800}
+      .btn{display:inline-block;padding:.6rem 1rem;border-radius:10px;background:var(--brand);color:#fff;text-decoration:none;font-weight:900}
       .btn.whatsapp{
-        display:inline-flex;align-items:center;gap:.45rem;background:#25d366;color:#fff;font-weight:800;
-        padding:.42rem .82rem;border-radius:10px;text-decoration:none;transition:background-color .16s ease;
+        display:inline-flex;align-items:center;gap:.45rem;background:#25d366;color:#fff;font-weight:900;
+        padding:.46rem .9rem;border-radius:10px;text-decoration:none;transition:background-color .16s ease;
       }
       .btn.whatsapp:hover,.btn.whatsapp:focus-visible{background:#1aa64b;color:#fff}
-      .btn.whatsapp .icon{width:18px;height:18px;filter:invert(1);flex:0 0 auto}
+      .btn.whatsapp .icon{width:30px;height:30px;filter:invert(1)}
       .btn.whatsapp:focus-visible{outline:0;box-shadow:0 0 0 3px var(--ring)}
 
       /* ================== LIGHTBOX ================== */
@@ -111,38 +124,30 @@
         max-width:92vw;max-height:86vh;border-radius:12px;box-shadow:0 20px 60px rgba(0,0,0,.35);
         background:#111;object-fit:contain;
       }
-      .lightbox .caption{color:#e2e8f0;margin-top:.6rem;text-align:center;font-size:.9rem}
+      .lightbox .caption{color:#e2e8f0;margin-top:.6rem;text-align:center;font-size:.95rem}
       .lightbox .close{
         position:absolute;top:14px;right:16px;font-size:28px;color:#e2e8f0;cursor:pointer;line-height:1;user-select:none
       }
 
-      /* ================== RESPONSIVE ================== */
-      @media (max-width:1280px){
-        .reveal{font-size:22px}
-        .grid{grid-template-columns:1.2fr 1fr}
-      }
-      @media (max-width:1024px){
-        .reveal{font-size:21px}
-        .reveal h1{font-size:2.4em;letter-spacing:1px}
-        .reveal h3.muted{font-size:1.05rem;padding:.4rem 0}
+      /* ================== RESPONSIVE TWEAKS ================== */
+      @media (max-width: 1024px){
+        /* Stop Reveal from squeezing: let slide content scroll if taller */
+        .reveal .slides section{
+          max-height:calc(100vh - 64px);
+          overflow:auto;
+          overscroll-behavior:contain;
+        }
         .grid,.grid-3{grid-template-columns:1fr}
         .kpi{justify-content:flex-start}
-        .company-logo{max-width:200px!important}
-        .brand-pill{font-size:.98rem;padding:.45rem 1.05rem}
-        /* allow vertical scroll on tall slides */
-        .reveal .slides section{max-height:calc(100vh - 72px);overflow:auto;overscroll-behavior:contain}
       }
-      @media (max-width:640px){
-        .reveal{font-size:18.5px}
-        .reveal h1{font-size:2em}
-        .reveal h2{font-size:1.35em}
-        .reveal h3.muted{font-size:.95rem}
-        .btn.whatsapp{padding:.34rem .68rem}
-        .btn.whatsapp .icon{width:16px;height:16px}
-        .kpi .card{min-width:108px}
-        .slide-card ul li,.slide-card ol li{font-size:.9em}
+      @media (max-width: 640px){
+        /* Make lists/buttons slightly bigger on small phones */
+        .slide-card ul li, .slide-card ol li{font-size:1.05em}
+        .btn.whatsapp{padding:.5rem 1rem}
+        .btn.whatsapp .icon{width:20px;height:20px}
+        .brand-pill{font-size:1rem}
       }
-      @media (prefers-reduced-motion:reduce){
+      @media (prefers-reduced-motion: reduce){
         .btn.whatsapp{transition:none}
       }
     </style>
@@ -152,7 +157,7 @@
     <div class="reveal">
       <div class="slides">
 
-        <!-- ========== TITLU ========== -->
+        <!-- TITLU -->
         <section>
           <div class="slide-card">
             <h1>Nume Salon</h1>
@@ -163,7 +168,7 @@
           </div>
         </section>
 
-        <!-- ========== PROBLEMĂ ========== -->
+        <!-- PROBLEMA -->
         <section class="dense">
           <div class="slide-card">
             <h3 class="muted">Problema pe care o rezolvăm</h3>
@@ -177,10 +182,10 @@
                     <p class="subnote">Telefon/WhatsApp/caiet = suprapuneri, goluri și haos în calendar.</p>
                   </li>
                   <li>Clienții nu văd simplu intervalele disponibile
-                    <p class="subnote">Trebuie să sune / să scrie pentru „la ce oră e liber” → mulți renunță.</p>
+                    <p class="subnote">Întrebări pentru „la ce oră e liber” → mulți renunță.</p>
                   </li>
                   <li>Comunicare împrăștiată
-                    <p class="subnote">Rezervări din mai multe locuri → se pierd sau se dublează programări.</p>
+                    <p class="subnote">Rezervări din mai multe locuri → se pierd sau se dublează.</p>
                   </li>
                   <li>Lipsă vizibilitate pe servicii/ore/frizer
                     <p class="subnote">Nu e clar ce aduce cel mai mult venit și unde e supraîncărcare.</p>
@@ -195,7 +200,7 @@
           </div>
         </section>
 
-        <!-- ========== SOLUȚIE ========== -->
+        <!-- SOLUȚIE -->
         <section class="dense">
           <div class="slide-card">
             <h3 class="muted">Soluția Frizerie</h3>
@@ -222,7 +227,7 @@
           </div>
         </section>
 
-        <!-- ========== TUR DE PRODUS (stack) ========== -->
+        <!-- TUR DE PRODUS -->
         <section>
           <section class="dense">
             <div class="slide-card">
@@ -293,7 +298,7 @@
           </section>
         </section>
 
-        <!-- ========== HOW-TO ========== -->
+        <!-- HOW-TO -->
         <section class="dense">
           <div class="slide-card">
             <h3 class="muted">Cum adaugi un frizer (admin)</h3>
@@ -370,7 +375,7 @@
           </div>
         </section>
 
-        <!-- ========== ARHITECTURĂ / ROADMAP / CONTACT ========== -->
+        <!-- ARHITECTURĂ / ROADMAP / CONTACT -->
         <section class="dense">
           <div class="slide-card">
             <h3 class="muted">Arhitectură & tehnologii</h3>
@@ -420,7 +425,7 @@
                 WhatsApp
               </a>
             </p>
-            <img src="logo.png" alt="Logo AndreiTech" style="width:100px;height:auto" loading="lazy"/>
+            <img src="andreitech.png" alt="Logo AndreiTech" style="width:400px;height:auto" loading="lazy"/>
           </div>
         </section>
 
@@ -480,6 +485,10 @@
         slideNumber:"c/t",
         transition:"slide",
         progress:true,
+        /* KEY: prevent Reveal from shrinking everything on phones */
+        minScale: 1,
+        maxScale: 1,
+        margin: 0.04,
         plugins:[RevealNotes, RevealZoom],
       });
     </script>
