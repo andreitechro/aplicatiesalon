@@ -7,211 +7,365 @@
 
     <style>
       /* ================== TOKENS ================== */
-      :root{
-        --brand:#0ea5e9;
-        --brand-700:#0369a1;
-        --ink:#0f172a;
-        --muted:#475569;
-        --bg:#f8fafc;
-        --ring:rgba(14,165,233,.25);
-        --card:#ffffff;
-        --line:#e5e7eb;
+      :root {
+        --brand: #0ea5e9;
+        --brand-700: #0369a1;
+        --ink: #0f172a;
+        --muted: #475569;
+        --bg: #f8fafc;
+        --ring: rgba(14, 165, 233, 0.25);
+        --card: #ffffff;
+        --line: #e5e7eb;
       }
 
       /* ================== BASE ================== */
-      html,body{
-        margin:0;
-        background:var(--bg);
-        color:var(--ink);
-        font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Inter, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
+      html,
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--ink);
+        font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
+          Inter, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji",
+          "Segoe UI Emoji";
         /* Fluid base type: min 18.5px, grows with viewport, caps at 22px */
         font-size: clamp(18.5px, 2.6vw, 22px);
-        line-height:1.45;
-        -webkit-font-smoothing:antialiased;
-        text-rendering:optimizeLegibility;
+        line-height: 1.45;
+        -webkit-font-smoothing: antialiased;
+        text-rendering: optimizeLegibility;
       }
-      img{max-width:100%;height:auto;display:block}
+      img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+      }
 
       /* ================== HEADINGS ================== */
-      h1{
+      h1 {
         font-size: clamp(2rem, 6.5vw, 3.2rem);
-        font-weight:900;
-        letter-spacing:1.2px;
-        text-transform:uppercase;
-        text-align:center;
-        margin:.1em 0 .35em;
-        background:linear-gradient(90deg,#0ea5e9,#38bdf8);
-        -webkit-background-clip:text;
-        -webkit-text-fill-color:transparent;
-        text-shadow:2px 2px 6px rgba(0,0,0,.08);
+        font-weight: 900;
+        letter-spacing: 1.2px;
+        text-transform: uppercase;
+        text-align: center;
+        margin: 0.1em 0 0.35em;
+        background: linear-gradient(90deg, #0ea5e9, #38bdf8);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.08);
       }
-      h2{
+      h2 {
         font-size: clamp(1.5rem, 4.4vw, 2.1rem);
-        margin:0 0 .8rem;
-        text-align:center;
+        margin: 0 0 0.8rem;
+        text-align: center;
       }
-      h3.muted{
+      h3.muted {
         font-size: clamp(1rem, 3.4vw, 1.2rem);
-        font-weight:800;
-        color:#475569;
-        letter-spacing:.4px;
-        text-transform:uppercase;
-        text-align:center;
-        margin:.6rem auto 1.2rem;
-        display:inline-block;
-        border-top:2px solid #e2e8f0;
-        border-bottom:2px solid #e2e8f0;
-        padding:.45rem .2rem;
+        font-weight: 800;
+        color: #475569;
+        letter-spacing: 0.4px;
+        text-transform: uppercase;
+        text-align: center;
+        margin: 0.6rem auto 1.2rem;
+        display: inline-block;
+        border-top: 2px solid #e2e8f0;
+        border-bottom: 2px solid #e2e8f0;
+        padding: 0.45rem 0.2rem;
       }
-      .muted{color:var(--muted)}
-      .brand-pill{
-        display:inline-block;
-        padding:.55rem 1.05rem;
-        border-radius:9999px;
-        background:linear-gradient(90deg,#0ea5e9,#38bdf8);
-        color:#fff;
-        font-weight:900;
-        font-size:clamp(.95rem,3.4vw,1.05rem);
-        box-shadow:0 4px 12px rgba(14,165,233,.25);
-        text-transform:uppercase;
+      .muted {
+        color: var(--muted);
       }
-      .lead-muted{
-        font-size:clamp(.95rem, 3.6vw, 1rem);
-        color:#334155;
-        background:#f1f5f9;
-        padding:.6rem 1rem;
-        border-radius:12px;
-        display:inline-block;
-        margin-top:.6rem;
-        box-shadow:0 2px 6px rgba(0,0,0,.08);
-        font-weight:500;
-        letter-spacing:.2px;
+      .brand-pill {
+        display: inline-block;
+        padding: 0.55rem 1.05rem;
+        border-radius: 9999px;
+        background: linear-gradient(90deg, #0ea5e9, #38bdf8);
+        color: #fff;
+        font-weight: 900;
+        font-size: clamp(0.95rem, 3.4vw, 1.05rem);
+        box-shadow: 0 4px 12px rgba(14, 165, 233, 0.25);
+        text-transform: uppercase;
       }
-      .code{
-        font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
-        background:#eef2f7;
-        padding:.15rem .4rem;
-        border-radius:.4rem;
+      .lead-muted {
+        font-size: clamp(0.95rem, 3.6vw, 1rem);
+        color: #334155;
+        background: #f1f5f9;
+        padding: 0.6rem 1rem;
+        border-radius: 12px;
+        display: inline-block;
+        margin-top: 0.6rem;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+        font-weight: 500;
+        letter-spacing: 0.2px;
+      }
+      .code {
+        font-family: ui-monospace, SFMono-Regular, Menlo, Consolas,
+          "Liberation Mono", monospace;
+        background: #eef2f7;
+        padding: 0.15rem 0.4rem;
+        border-radius: 0.4rem;
       }
 
       /* ================== PAGE LAYOUT ================== */
-      .section{
-        padding: clamp(2.2rem, 5.5vw, 4.2rem) clamp(.9rem, 3.2vw, 1.6rem);
-        border-bottom:1px solid var(--line);
+      .section {
+        padding: clamp(2.2rem, 5.5vw, 4.2rem) clamp(0.9rem, 3.2vw, 1.6rem);
+        border-bottom: 1px solid var(--line);
         background: transparent;
       }
-      .section-inner{
+      .section-inner {
         max-width: min(1100px, 92vw);
         margin: 0 auto;
       }
-      .center{text-align:center}
+      .center {
+        text-align: center;
+      }
 
-      .grid{
-        display:grid;
-        gap: clamp(.8rem, 2.6vw, 1.4rem);
+      .grid {
+        display: grid;
+        gap: clamp(0.8rem, 2.6vw, 1.4rem);
         grid-template-columns: 1.25fr 1fr;
-        align-items:center;
+        align-items: center;
       }
-      .grid-3{
-        display:grid;gap:1rem;grid-template-columns:repeat(3,1fr)
+      .grid-3 {
+        display: grid;
+        gap: 1rem;
+        grid-template-columns: repeat(3, 1fr);
       }
-      @media (max-width: 980px){
-        .grid, .grid-3 { grid-template-columns: 1fr; }
+      @media (max-width: 980px) {
+        .grid,
+        .grid-3 {
+          grid-template-columns: 1fr;
+        }
       }
 
-      .callout{
-        margin-top:.6rem;
-        background:#ecfeff;
-        border:1px solid #bae6fd;
-        color:#0c4a6e;
-        border-radius:12px;
-        padding:.75rem 1rem;
-        box-shadow:0 2px 8px rgba(2,132,199,.08);
+      .callout {
+        margin-top: 0.6rem;
+        background: #ecfeff;
+        border: 1px solid #bae6fd;
+        color: #0c4a6e;
+        border-radius: 12px;
+        padding: 0.75rem 1rem;
+        box-shadow: 0 2px 8px rgba(2, 132, 199, 0.08);
       }
 
       /* ================== LISTS ================== */
-      ul, ol{margin:.35rem 0;padding-left:1.2rem}
-      .section ul li, .section ol li{margin:.28rem 0;line-height:1.45}
-      .subnote{font-size:.9rem;color:#64748b;margin:.2rem 0 0 .2rem;line-height:1.3}
+      ul,
+      ol {
+        margin: 0.35rem 0;
+        padding-left: 1.2rem;
+      }
+      .section ul li,
+      .section ol li {
+        margin: 0.28rem 0;
+        line-height: 1.45;
+      }
+      .subnote {
+        font-size: 0.9rem;
+        color: #64748b;
+        margin: 0.2rem 0 0 0.2rem;
+        line-height: 1.3;
+      }
 
       /* custom ordered list, blue numbers only */
-      ol.steps{list-style:none!important;margin:0;padding:0;counter-reset:step}
-      ol.steps>li{counter-increment:step;position:relative;padding-left:1.6rem}
-      ol.steps>li::marker{content:""!important}
-      ol.steps>li::before{
+      ol.steps {
+        list-style: none !important;
+        margin: 0;
+        padding: 0;
+        counter-reset: step;
+      }
+      ol.steps > li {
+        counter-increment: step;
+        position: relative;
+        padding-left: 1.6rem;
+      }
+      ol.steps > li::marker {
+        content: "" !important;
+      }
+      ol.steps > li::before {
         content: counter(step) ".";
-        position:absolute;left:0;top:0;
-        color:var(--brand);
-        font-weight:900;
+        position: absolute;
+        left: 0;
+        top: 0;
+        color: var(--brand);
+        font-weight: 900;
       }
 
       /* ================== TABLE ================== */
-      table{border-collapse:collapse;width:100%;font-size:.95em}
-      th,td{border:1px solid #e5e7eb;padding:.5rem .6rem;text-align:left}
-      th{background:#f1f5f9}
+      table {
+        border-collapse: collapse;
+        width: 100%;
+        font-size: 0.95em;
+      }
+      th,
+      td {
+        border: 1px solid #e5e7eb;
+        padding: 0.5rem 0.6rem;
+        text-align: left;
+      }
+      th {
+        background: #f1f5f9;
+      }
 
       /* ================== KPI ================== */
-      .kpi{display:flex;gap:.6rem;flex-wrap:wrap;justify-content:center;margin-top:.6rem}
-      .kpi .card{
-        padding:.45rem .65rem;
-        border:1px solid rgba(2,6,23,.08);
-        border-radius:12px;
-        background:#fff;
-        min-width:120px;
-        text-align:center;
+      .kpi {
+        display: flex;
+        gap: 0.6rem;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-top: 0.6rem;
       }
-      .kpi .card h3{font-size:1.05rem;margin:.1rem 0}
-      .kpi .card p{font-size:.8rem;margin:0;color:var(--muted)}
+      .kpi .card {
+        padding: 0.45rem 0.65rem;
+        border: 1px solid rgba(2, 6, 23, 0.08);
+        border-radius: 12px;
+        background: #fff;
+        min-width: 120px;
+        text-align: center;
+      }
+      .kpi .card h3 {
+        font-size: 1.05rem;
+        margin: 0.1rem 0;
+      }
+      .kpi .card p {
+        font-size: 0.8rem;
+        margin: 0;
+        color: var(--muted);
+      }
 
       /* ================== BUTTONS ================== */
-      .btn{display:inline-block;padding:.6rem 1rem;border-radius:10px;background:var(--brand);color:#fff;text-decoration:none;font-weight:900}
-      .btn:hover{background:var(--brand-700)}
-      .btn.whatsapp{
-        display:inline-flex;align-items:center;gap:.45rem;background:#25d366;color:#fff;font-weight:900;
-        padding:.46rem .9rem;border-radius:10px;text-decoration:none;transition:background-color .16s ease;
+      .btn {
+        display: inline-block;
+        padding: 0.6rem 1rem;
+        border-radius: 10px;
+        background: var(--brand);
+        color: #fff;
+        text-decoration: none;
+        font-weight: 900;
       }
-      .btn.whatsapp:hover,.btn.whatsapp:focus-visible{background:#1aa64b;color:#fff}
-      .btn.whatsapp .icon{width:22px;height:22px;filter:invert(1)}
-      .btn.whatsapp:focus-visible{outline:0;box-shadow:0 0 0 3px var(--ring)}
+      .btn:hover {
+        background: var(--brand-700);
+      }
+      .btn.whatsapp {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.45rem;
+        background: #25d366;
+        color: #fff;
+        font-weight: 900;
+        padding: 0.46rem 0.9rem;
+        border-radius: 10px;
+        text-decoration: none;
+        transition: background-color 0.16s ease;
+      }
+      .btn.whatsapp:hover,
+      .btn.whatsapp:focus-visible {
+        background: #1aa64b;
+        color: #fff;
+      }
+      .btn.whatsapp .icon {
+        width: 22px;
+        height: 22px;
+        filter: invert(1);
+      }
+      .btn.whatsapp:focus-visible {
+        outline: 0;
+        box-shadow: 0 0 0 3px var(--ring);
+      }
 
       /* ================== MEDIA / LOGOS ================== */
-      .logo{max-width:min(60vw, 340px);margin:.8rem auto 0}
-      .shot{border-radius:12px;box-shadow:0 8px 28px rgba(2,6,23,.08)}
-      .zoomable{cursor:zoom-in;border-radius:12px}
+      .logo {
+        max-width: min(60vw, 340px);
+        margin: 0.8rem auto 0;
+      }
+      .shot {
+        border-radius: 12px;
+        box-shadow: 0 8px 28px rgba(2, 6, 23, 0.08);
+      }
+      .zoomable {
+        cursor: zoom-in;
+        border-radius: 12px;
+      }
 
       /* ================== LIGHTBOX ================== */
-      .lightbox{
-        position:fixed;inset:0;display:none;place-items:center;background:rgba(0,0,0,.78);z-index:9999;padding:2rem;
-        backdrop-filter:saturate(120%) blur(2px);
+      .lightbox {
+        position: fixed;
+        inset: 0;
+        display: none;
+        place-items: center;
+        background: rgba(0, 0, 0, 0.78);
+        z-index: 9999;
+        padding: 2rem;
+        backdrop-filter: saturate(120%) blur(2px);
       }
-      .lightbox.open{display:grid}
-      .lightbox img{
-        max-width:92vw;max-height:86vh;border-radius:12px;box-shadow:0 20px 60px rgba(0,0,0,.35);
-        background:#111;object-fit:contain;
+      .lightbox.open {
+        display: grid;
       }
-      .lightbox .caption{color:#e2e8f0;margin-top:.6rem;text-align:center;font-size:.95rem}
-      .lightbox .close{
-        position:absolute;top:14px;right:16px;font-size:28px;color:#e2e8f0;cursor:pointer;line-height:1;user-select:none
+      .lightbox img {
+        max-width: 92vw;
+        max-height: 86vh;
+        border-radius: 12px;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+        background: #111;
+        object-fit: contain;
+      }
+      .lightbox .caption {
+        color: #e2e8f0;
+        margin-top: 0.6rem;
+        text-align: center;
+        font-size: 0.95rem;
+      }
+      .lightbox .close {
+        position: absolute;
+        top: 14px;
+        right: 16px;
+        font-size: 28px;
+        color: #e2e8f0;
+        cursor: pointer;
+        line-height: 1;
+        user-select: none;
       }
 
       /* ================== UTIL ================== */
-      .mb-xs{margin-bottom:.35rem}
-      .mb-sm{margin-bottom:.6rem}
-      .mb-md{margin-bottom:1rem}
-      .mb-lg{margin-bottom:1.4rem}
+      .mb-xs {
+        margin-bottom: 0.35rem;
+      }
+      .mb-sm {
+        margin-bottom: 0.6rem;
+      }
+      .mb-md {
+        margin-bottom: 1rem;
+      }
+      .mb-lg {
+        margin-bottom: 1.4rem;
+      }
+
+      .image-row {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 1rem;
+        margin-top: 1.4rem;
+      }
     </style>
   </head>
 
   <body>
-
     <!-- ========== TITLU ========== -->
     <section class="section center">
       <div class="section-inner">
         <h1>Nume Salon</h1>
         <h3 class="muted">Portofoliu • Rezervări • Programări • Recenzii</h3>
-        <p class="mb-sm"><span class="brand-pill">Platformă personalizabilă pentru frizerii & saloane</span></p>
-        <img class="logo zoomable" src="./andreitech.png" alt="Logo AndreiTech" loading="lazy"/>
-        <p class="lead-muted">AndreiTech • andreiccl24@gmail.com • +40752026975</p>
+        <p class="mb-sm">
+          <span class="brand-pill"
+            >Platformă personalizabilă pentru frizerii & saloane</span
+          >
+        </p>
+        <img
+          class="logo zoomable"
+          src="./andreitech.png"
+          alt="Logo AndreiTech"
+          loading="lazy"
+        />
+        <p class="lead-muted">
+          AndreiTech • andreiccl24@gmail.com • +40752026975
+        </p>
       </div>
     </section>
 
@@ -222,26 +376,52 @@
         <div class="grid">
           <div>
             <ul>
-              <li>No‑show & anulări în ultimul moment → venituri pierdute
-                <p class="subnote">Clienții care nu vin lasă goluri greu de ocupat → pierdere directă de bani.</p>
+              <li>
+                No‑show & anulări în ultimul moment → venituri pierdute
+                <p class="subnote">
+                  Clienții care nu vin lasă goluri greu de ocupat → pierdere
+                  directă de bani.
+                </p>
               </li>
-              <li>Programări manuale → conflicte, ferestre goale, stres
-                <p class="subnote">Telefon/WhatsApp/caiet = suprapuneri, goluri și haos în calendar.</p>
+              <li>
+                Programări manuale → conflicte, ferestre goale, stres
+                <p class="subnote">
+                  Telefon/WhatsApp/caiet = suprapuneri, goluri și haos în
+                  calendar.
+                </p>
               </li>
-              <li>Clienții nu văd simplu intervalele disponibile
-                <p class="subnote">Întrebări pentru „la ce oră e liber” → mulți renunță.</p>
+              <li>
+                Clienții nu văd simplu intervalele disponibile
+                <p class="subnote">
+                  Întrebări pentru „la ce oră e liber” → mulți renunță.
+                </p>
               </li>
-              <li>Comunicare împrăștiată
-                <p class="subnote">Rezervări din mai multe locuri → se pierd sau se dublează.</p>
+              <li>
+                Comunicare împrăștiată
+                <p class="subnote">
+                  Rezervări din mai multe locuri → se pierd sau se dublează.
+                </p>
               </li>
-              <li>Lipsă vizibilitate pe servicii/ore/frizer
-                <p class="subnote">Nu e clar ce aduce cel mai mult venit și unde e supraîncărcare.</p>
+              <li>
+                Lipsă vizibilitate pe servicii/ore/frizer
+                <p class="subnote">
+                  Nu e clar ce aduce cel mai mult venit și unde e
+                  supraîncărcare.
+                </p>
               </li>
             </ul>
-            <div class="callout">Impact tipic după implementare: <b>−20–35% no‑show</b>, <b>+10–25% rezervări</b>.</div>
+            <div class="callout">
+              Impact tipic după implementare: <b>−20–35% no‑show</b>,
+              <b>+10–25% rezervări</b>.
+            </div>
           </div>
           <div>
-            <img class="shot zoomable" src="probleme.png" alt="Situații problematice în programări" loading="lazy"/>
+            <img
+              class="shot zoomable"
+              src="probleme.png"
+              alt="Situații problematice în programări"
+              loading="lazy"
+            />
           </div>
         </div>
       </div>
@@ -254,21 +434,65 @@
         <div class="grid">
           <div>
             <ul>
-              <li><b>Pagină publică de rezervări</b> cu selectare serviciu & frizer</li>
+              <li>
+                <b>Pagină publică de rezervări</b> cu selectare frizer, serviciu, data și ora disponibilă.
+              </li>
               <li><b>Sloturi inteligente</b> + navigare rapidă în calendar</li>
-              <li><b>Panou administrator</b> pentru servicii, prețuri, durate, frizeri</li>
-              <li><b>Autentificare sigură</b> (JWT) & back‑office privat</li>
-              <li><b>Confirmări & reamintiri</b> (server) + <b>recenzii</b> după vizită</li>
-              <li><b>Pagini personale</b> pentru fiecare frizer (link personal + QR)</li>
+              <li>
+                <b>Panou administrator</b> pentru servicii, prețuri, durate,
+                frizeri
+              </li>
+              <li><b>Autentificare sigură</b> (JWT) & back-office privat</li>
+              <li>
+                <b>Confirmări & reamintiri</b> (server) + <b>recenzii</b> după
+                vizită
+              </li>
+              <li>
+                <b>Pagini personale</b> pentru fiecare frizer (link personal +
+                QR și Carte de Vizită)
+              </li>
             </ul>
             <div class="kpi">
-              <div class="card"><h3>−30%</h3><p class="muted">no‑show</p></div>
-              <div class="card"><h3>+22%</h3><p class="muted">rezervări/săpt.</p></div>
-              <div class="card"><h3>&lt;30 min</h3><p class="muted">config inițial</p></div>
+              <div class="card">
+                <h3>−30%</h3>
+                <p class="muted">no-show</p>
+              </div>
+              <div class="card">
+                <h3>+22%</h3>
+                <p class="muted">rezervări/săpt.</p>
+              </div>
+              <div class="card">
+                <h3>&lt;30 min</h3>
+                <p class="muted">config inițial</p>
+              </div>
             </div>
           </div>
-          <div>
-            <img class="shot zoomable" src="solutii.png" alt="Prezentarea soluției" loading="lazy"/>
+
+          <div class="image-row">
+            <img
+              class="shot zoomable"
+              src="solutii.png"
+              alt="Alege Frizerul"
+              loading="lazy"
+            />
+            <img
+              class="shot zoomable"
+              src="alegeserviciu.png"
+              alt="Alege Serviciu"
+              loading="lazy"
+            />
+            <img
+              class="shot zoomable"
+              src="selectaredata.png"
+              alt="Selectare Data"
+              loading="lazy"
+            />
+            <img
+              class="shot zoomable"
+              src="selectareoredisponibile.png"
+              alt="Selectare Ora Disponibila"
+              loading="lazy"
+            />
           </div>
         </div>
       </div>
@@ -278,7 +502,9 @@
     <section class="section center">
       <div class="section-inner">
         <h3 class="muted">Tur de produs</h3>
-        <p class="lead-muted">Flux: Client → Rezervare → Confirmare → Calendar staff → Recenzie.</p>
+        <p class="lead-muted">
+          Flux: Client → Rezervare → Confirmare → Calendar staff → Recenzie.
+        </p>
       </div>
     </section>
 
@@ -288,13 +514,22 @@
         <div class="grid">
           <div>
             <ul>
-              <li>Rute publice: <span class="code">/programeaza-te</span> și <span class="code">/link-frizer</span></li>
-              <li>Selectare serviciu → frizer → dată/oră (sloturi valide)</li>
+              <li>
+                Rute publice: <span class="code">/programeaza-te</span> și
+                <span class="code">/link-frizer</span>
+              </li>
+              <li>Selectare Frizer → Selectare Serviciu → Dată/Oră (sloturi valide) → Introducere Nume Prenume/Nr. Telefon</li>
               <li>Protecție anti‑spam: <b>hCaptcha</b></li>
             </ul>
           </div>
           <div>
-            <img class="shot zoomable" src="rezervaripublic.png" alt="Rezervare publică" width="280" loading="lazy"/>
+            <img
+              class="shot zoomable"
+              src="rezervaripublic.png"
+              alt="Rezervare publică"
+              width="280"
+              loading="lazy"
+            />
           </div>
         </div>
       </div>
@@ -306,13 +541,147 @@
         <div class="grid">
           <div>
             <ul>
-              <li>FullCalendar: vizualizare pe resurse (frizeri)</li>
+              <li>Calendar: vizualizare pe resurse (frizeri)</li>
               <li>Drag‑and‑drop și mutare programare (cu confirmare)</li>
               <li>Filtrare, navigare pe zile, prevenire suprapuneri</li>
+              <li>Calendar pentru selecție rapidă zi în viitor</li>
+              <li>Buton Zi liberă pentru blocarea totală a zilei</li>
+              <li>Pauză cu comentariu pentru ce este</li>
+              <li>Programare Închisă</li>
+              <li>Programare Anulată cu mesaj clar din partea Frizerului și cu Mesaj în cazul anulării de catre Client</li>
+              <li>Panou Control Detalii Programare</li>
+              <li>Pagină Unică Detalii Programare Client cu control asupra anulării. (Nu se poate anula programare cu mai puțin de 24 ore în urmă)</li>
+            </ul>
+          </div>
+          <div class="image-row">
+            <img
+              class="shot zoomable"
+              src="calendarprogramari.png"
+              alt="Calendar Programari Interfata Frizer"
+              loading="lazy"
+            />
+            <img
+              class="shot zoomable"
+              src="detaliiprogramareclient.png"
+              alt="Pagina Unica Detalii Programare Clinet"
+              loading="lazy"
+            />
+            <img
+              class="shot zoomable"
+              src="calendarprogramariadaptiv.png"
+              alt="Calendar Selectie Zi Viitor"
+              loading="lazy"
+            />
+            <img
+              class="shot zoomable"
+              src="detaliiprogramare.png"
+              alt="Panou Control Detalii Programare"
+              loading="lazy"
+            />      
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-inner">
+        <h3 class="muted">Mesagerie</h3>
+        <div class="grid">
+          <div>
+            <ul>
+              <li>Mesagerie WhatsApp</li>
+              <li>Mesagerie SMS</li>
+              <li>Aceste mesaje sunt generate automat de către aplicație. Ele pot fi schimbate în funcție de alegerea salonului</li>
+              <li>Se trimit la apăsare de buton sau se poate face opțiune de automatizare contra cost</li>
+              <li style="color:red;">Adresa localhost:3000, servește dezvoltării aplicației. În producție, aceasta se va înlocui cu Numele Salonului</li>
+            </ul>
+          </div>
+          <div class="image-row">        
+            <img
+              class="shot zoomable"
+              src="mesageriesms.png"
+              alt="Mesaj SMS"
+              loading="lazy"
+            />
+            <img
+              class="shot zoomable"
+              src="mesageriewhatsapp.png"
+              alt="Mesaj WhatsApp"
+              loading="lazy"
+            />
+            <img
+              class="shot zoomable"
+              src="mesajrecenzie.png"
+              alt="Mesaj Recenzie"
+              loading="lazy"
+            />
+            <img
+              class="shot zoomable"
+              src="mesajanularefrizer.png"
+              alt="Mesaj Anulare"
+              loading="lazy"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-inner">
+        <h3 class="muted">Cum adaugi clienți</h3>
+        <div class="grid">
+          <div>
+            <ol class="steps">
+              <li>Mergi la <b>Clienți</b> și apasă <b>Adaugă client</b>.</li>
+              <li>
+                Completează <b>Nume</b> și <b>Telefon</b> (validare 9 cifre,
+                prefix selectabil).
+              </li>
+              <li>
+                Salvează — clientul intră în baza ta și îl poți folosi în
+                programări.
+              </li>
+            </ol>
+          </div>
+          <div>
+            <img
+              class="shot zoomable"
+              src="adaugaclienti.png"
+              alt="Adăugare client"
+              loading="lazy"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    
+    <section class="section">
+      <div class="section-inner">
+        <h3 class="muted">Clienți & recenzii</h3>
+        <div class="grid">
+          <div>
+            <ul>
+              <li>Adaugă clienți cu nume & telefon (validare prefix).<br />Numele Clientului este cel înregistrat în aplicație. Nu poate fi schimbat decât de Frizerul care l-a adaugat sau Administrator</li>
+              <li>Linkuri cu token pentru programare/recenzie</li>
+              <li>Listă recenzii + răspuns din partea frizerului</li>
             </ul>
           </div>
           <div>
-            <img class="shot zoomable" src="calendarprogramari.png" alt="Calendar programări" loading="lazy"/>
+            <div class="grid-3" style="grid-template-columns: repeat(2, 1fr)">
+              <img
+                class="shot zoomable"
+                src="lasarecenzie.png"
+                alt="Lasă recenzie"
+                loading="lazy"
+              />
+              <img
+                class="shot zoomable"
+                src="raspunsrecenzie.png"
+                alt="Răspuns recenzie"
+                loading="lazy"
+              />
+            </div>
           </div>
         </div>
       </div>
@@ -330,46 +699,12 @@
             </ul>
           </div>
           <div>
-            <img class="shot zoomable" src="servicii.png" alt="Administrare servicii" loading="lazy"/>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="section-inner">
-        <h3 class="muted">Administrare frizeri</h3>
-        <div class="grid">
-          <div>
-            <ul>
-              <li>Adaugă frizer (nume, e‑mail, telefon, rol)</li>
-              <li>Atribuie servicii per frizer</li>
-              <li>Link personal auto‑generat (modificabil)</li>
-            </ul>
-          </div>
-          <div>
-            <img class="shot zoomable" src="adaugafrizer.png" alt="Administrare frizeri" loading="lazy"/>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="section-inner">
-        <h3 class="muted">Clienți & recenzii</h3>
-        <div class="grid">
-          <div>
-            <ul>
-              <li>Adaugă clienți cu nume & telefon (validare prefix)</li>
-              <li>Linkuri cu token pentru programare/recenzie</li>
-              <li>Listă recenzii + răspuns din partea frizerului</li>
-            </ul>
-          </div>
-          <div>
-            <div class="grid-3" style="grid-template-columns:repeat(2,1fr)">
-              <img class="shot zoomable" src="lasarecenzie.png" alt="Lasă recenzie" loading="lazy"/>
-              <img class="shot zoomable" src="raspunsrecenzie.png" alt="Răspuns recenzie" loading="lazy"/>
-            </div>
+            <img
+              class="shot zoomable"
+              src="servicii.png"
+              alt="Administrare servicii"
+              loading="lazy"
+            />
           </div>
         </div>
       </div>
@@ -383,14 +718,26 @@
           <div>
             <ol class="steps">
               <li>Deschide <b>Panou Admin → Frizeri</b>.</li>
-              <li>Apasă <b>„Adaugă frizer”</b> și completează: <b>Nume</b>, <b>Email</b>, <b>Telefon</b>, <b>Rol</b>.</li>
-              <li>Selectează <b>serviciile</b> pe care le oferă (tuns, aranjat, etc.).</li>
-              <li><b>Link personal</b>: se auto‑generează (ex. <span class="code">ion.popescu</span>) și trebuie să fie unic.</li>
-              <li>Salvează — frizerul apare în listă și poate intra în cont.</li>
+              <li>
+                Apasă <b>„Adaugă frizer”</b> și completează: <b>Nume</b>,
+                <b>Email</b>, <b>Telefon</b>.
+              </li>
+              <li>
+                Selectează <b>serviciile</b> pe care le oferă (tuns, aranjat,
+                etc.).
+              </li>
+              <li>
+                Salvează — frizerul apare în listă și poate intra în cont.
+              </li>
             </ol>
           </div>
           <div>
-            <img class="shot zoomable" src="adaugafrizer.png" alt="Adăugare frizer" loading="lazy"/>
+            <img
+              class="shot zoomable"
+              src="adaugafrizer.png"
+              alt="Adăugare frizer"
+              loading="lazy"
+            />
           </div>
         </div>
       </div>
@@ -404,11 +751,19 @@
             <ol class="steps">
               <li>Mergi la <b>Contul meu</b> (meniu <b>Utilizator</b>).</li>
               <li>Alege <b>Încarcă poză</b> → decupează (crop) și confirmă.</li>
-              <li>Back‑end procesează imaginea (rotate, <b>512×512</b>, WebP), curăță metadata și salvează.</li>
+              <li>
+                Back‑end procesează imaginea (rotate, <b>512×512</b>, WebP),
+                curăță metadata și salvează.
+              </li>
             </ol>
           </div>
           <div>
-            <img class="shot zoomable" src="pozaprofil.png" alt="Poză de profil" loading="lazy"/>
+            <img
+              class="shot zoomable"
+              src="pozaprofil.png"
+              alt="Poză de profil"
+              loading="lazy"
+            />
           </div>
         </div>
       </div>
@@ -420,13 +775,27 @@
         <div class="grid">
           <div>
             <ul>
-              <li>Fiecare frizer are un <b>link personal</b> (ex.: <span class="code">/ion.popescu</span>) pentru programări directe.</li>
-              <li>Linkul este generat de Administrator și nu poate fi duplicat.</li>
-              <li>Public: clientul vede serviciile și disponibilitatea frizerului pentru a face rezervare la el.</li>
+              <li>
+                Fiecare frizer are un <b>link personal</b> (ex.:
+                <span class="code">/ion.popescu</span>) pentru programări
+                directe.
+              </li>
+              <li>
+                Linkul este generat de Administrator și nu poate fi duplicat.
+              </li>
+              <li>
+                Public: clientul vede serviciile și disponibilitatea frizerului
+                pentru a face rezervare la el.
+              </li>
             </ul>
           </div>
           <div>
-            <img class="shot zoomable" src="rezervaripublic.png" alt="Pagină publică frizer" loading="lazy"/>
+            <img
+              class="shot zoomable"
+              src="rezervaripublic.png"
+              alt="Pagină publică frizer"
+              loading="lazy"
+            />
           </div>
         </div>
       </div>
@@ -438,37 +807,40 @@
         <div class="grid">
           <div>
             <ol class="steps">
-              <li>Din <b>Utilizator → Carte de Vizită / QR</b> apasă <b>Generează</b>.</li>
-              <li>Mai întâi se creează codul QR în baza de date, apoi se generează automat cartea de vizită pe baza acelui QR.</li>
-              <li>Se salvează imagine PNG (512px) pentru <b>URL‑ul paginii tale</b>.</li>
-              <li>Poți descărca macheta finală (ex. 126×80mm ~300dpi) cu LOGO, nume salon, nume frizer, telefon și QR.</li>
+              <li>
+                Din <b>Utilizator → Carte de Vizită / QR</b> apasă
+                <b>Generează</b>.
+              </li>
+              <li>
+                Mai întâi se creează codul QR în baza de date, apoi se generează
+                automat cartea de vizită pe baza acelui QR.
+              </li>
+              <li>
+                Se salvează imagine PNG (512px) pentru
+                <b>URL‑ul paginii tale</b>.
+              </li>
+              <li>
+                Poți descărca macheta finală (ex. 126×80mm ~300dpi) cu LOGO,
+                nume salon, nume frizer, telefon și QR.
+              </li>
             </ol>
-            <div class="callout">Tip: folosește QR pe afișe, Instagram bio, Google Maps profil.</div>
+            <div class="callout">
+              Tip: folosește QR pe afișe, Instagram bio, Google Maps profil.
+            </div>
           </div>
           <div>
-            <img class="shot zoomable" src="cartedevizita.png" alt="Exemplu carte de vizită" loading="lazy"/>
+            <img
+              class="shot zoomable"
+              src="cartedevizita.png"
+              alt="Exemplu carte de vizită"
+              loading="lazy"
+            />
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section">
-      <div class="section-inner">
-        <h3 class="muted">Cum adaugi clienți</h3>
-        <div class="grid">
-          <div>
-            <ol class="steps">
-              <li>Mergi la <b>Clienți</b> și apasă <b>Adaugă client</b>.</li>
-              <li>Completează <b>Nume</b> și <b>Telefon</b> (validare 9 cifre, prefix selectabil).</li>
-              <li>Salvează — clientul intră în baza ta și îl poți folosi în programări.</li>
-            </ol>
-          </div>
-          <div>
-            <img class="shot zoomable" src="adaugaclienti.png" alt="Adăugare client" loading="lazy"/>
-          </div>
-        </div>
-      </div>
-    </section>
+    
 
     <section class="section">
       <div class="section-inner">
@@ -476,14 +848,34 @@
         <div class="grid">
           <div>
             <ol class="steps">
-              <li>Din <b>Utilizator → Program</b> setează intervalele pe zile (ex.: 09:00–18:00).</li>
-              <li>Salvează — programul se afișează în calendar și validează sloturile disponibile.</li>
-              <li>În afara programului: <b>slot respins</b>; zile <b>închise</b>: nu apar în rezervare.</li>
+              <li>
+                Din <b>Utilizator → Program</b> setează intervalele pe zile
+                (ex.: 09:00–18:00).
+              </li>
+              <li>
+                Salvează — programul se afișează în calendar și validează
+                sloturile disponibile.
+              </li>
+              <li>
+                În afara programului: <b>slot respins</b>; zile <b>închise</b>:
+                nu apar în rezervare.
+              </li>
+              <li>
+                Programul de lucru al frizerului se setează în funcție de programul salonului.
+              </li>
             </ol>
-            <div class="callout">Mesaje tip: „Frizerul este închis în acea zi”, „Programarea este în afara programului frizerului”.</div>
+            <div class="callout">
+              Mesaje tip: „Frizerul este închis în acea zi”, „Programarea este
+              în afara programului frizerului”.
+            </div>
           </div>
           <div>
-            <img class="shot zoomable" src="programdelucru.png" alt="Program de lucru" loading="lazy"/>
+            <img
+              class="shot zoomable"
+              src="programdelucru.png"
+              alt="Program de lucru"
+              loading="lazy"
+            />
           </div>
         </div>
       </div>
@@ -495,7 +887,9 @@
         <h3 class="muted">Arhitectură & tehnologii</h3>
         <div class="grid">
           <div>
-            <p class="center mb-sm"><span class="brand-pill">Frontend (React)</span></p>
+            <p class="center mb-sm">
+              <span class="brand-pill">Frontend (React)</span>
+            </p>
             <ul>
               <li>CRA + React Router</li>
               <li>FullCalendar (timegrid, resources)</li>
@@ -505,13 +899,18 @@
             </ul>
           </div>
           <div>
-            <p class="center mb-sm"><span class="brand-pill">Backend (Express + MySQL)</span></p>
+            <p class="center mb-sm">
+              <span class="brand-pill">Backend (Express + MySQL)</span>
+            </p>
             <ul>
               <li>Autentificare JWT, rate‑limit, CORS, Helmet</li>
               <li>Upload: <b>multer</b> + <b>sharp</b> (WebP 512×512)</li>
               <li>QR: <b>qrcode</b> (PNG) • stocat în baza de date.</li>
               <li>Program: setări (luni–duminică start/end) + ore de lucru.</li>
-              <li><span class="code">nodemailer</span> (confirmări/anulări/mutări programări)</li>
+              <li>
+                <span class="code">nodemailer</span> (confirmări/anulări/mutări
+                programări)
+              </li>
             </ul>
           </div>
         </div>
@@ -533,22 +932,38 @@
     <section class="section center">
       <div class="section-inner">
         <h3 class="muted">Hai să lucrăm împreună</h3>
-        <p class="mb-sm">Vrei o prezentare live sau funcționalități personalizate?</p>
+        <p class="mb-sm">
+          Vrei o prezentare live sau funcționalități personalizate?
+        </p>
         <p>
-          <a class="btn whatsapp" href="https://wa.me/40752026975" target="_blank" rel="noopener">
-            <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/whatsapp.svg" alt="WhatsApp" class="icon"/>
+          <a
+            class="btn whatsapp"
+            href="https://wa.me/40752026975"
+            target="_blank"
+            rel="noopener"
+          >
+            <img
+              src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/whatsapp.svg"
+              alt="WhatsApp"
+              class="icon"
+            />
             WhatsApp
           </a>
         </p>
-        <img class="logo zoomable" src="andreitech.png" alt="Logo AndreiTech" loading="lazy"/>
+        <img
+          class="logo zoomable"
+          src="andreitech.png"
+          alt="Logo AndreiTech"
+          loading="lazy"
+        />
       </div>
     </section>
 
     <!-- ========== LIGHTBOX (GLOBAL) ========== -->
     <div class="lightbox" id="lightbox" aria-hidden="true">
       <span class="close" id="lightboxClose" aria-label="Închide">×</span>
-      <div style="display:grid;justify-items:center">
-        <img id="lightboxImg" src="" alt=""/>
+      <div style="display: grid; justify-items: center">
+        <img id="lightboxImg" src="" alt="" />
         <div class="caption" id="lightboxCaption"></div>
       </div>
     </div>
@@ -584,9 +999,13 @@
           lbImg.src = "";
           document.documentElement.style.overflow = "";
         };
-        lb.addEventListener("click", (e) => { if (e.target === lb) closeLB(); });
+        lb.addEventListener("click", (e) => {
+          if (e.target === lb) closeLB();
+        });
         lbClose.addEventListener("click", closeLB);
-        document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeLB(); });
+        document.addEventListener("keydown", (e) => {
+          if (e.key === "Escape") closeLB();
+        });
       })();
     </script>
   </body>
